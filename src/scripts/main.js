@@ -355,6 +355,33 @@ const people = [
 ];
 
 // ---------------------------------------------------------------
+
+const table = document.querySelector('.dashboard');
+
+people.forEach((person) => {
+  const row = document.createElement('tr');
+
+  const infoAboutPerson = [
+    person.name,
+    person.sex === 'f' ? 'Female' : 'Male',
+    person.born,
+    person.died,
+    person.died - person.born,
+    Math.ceil(person.died / 100),
+  ];
+
+  infoAboutPerson.forEach((el) => {
+    const cell = document.createElement('td');
+
+    cell.textContent = el;
+    row.append(cell);
+  });
+
+  table.append(row);
+});
+
+// ---------------------------------------------------------------
+
 // Базова логіка
 
 // Знаходимо таблицю в HTML розмітці
@@ -394,6 +421,7 @@ const people = [
 // row1.append(cell6);
 
 // ---------------------------------------------------------------
+
 // Перший варіант
 
 // const table = document.querySelector('.dashboard');
@@ -429,30 +457,4 @@ const people = [
 //   row.append(cell6);
 // });
 
-// ---------------------------------------------------------------
-// Коротший варіант
-
-const table = document.querySelector('.dashboard');
-
-people.forEach((person) => {
-  const row = document.createElement('tr');
-
-  const infoAboutPerson = [
-    person.name,
-    person.sex === 'f' ? 'Female' : 'Male',
-    person.born,
-    person.died,
-    person.died - person.born,
-    Math.ceil(person.died / 100),
-  ];
-
-  infoAboutPerson.forEach((el) => {
-    const cell = document.createElement('td');
-
-    cell.textContent = el;
-    row.append(cell);
-  });
-
-  table.append(row);
-});
 // ---------------------------------------------------------------
